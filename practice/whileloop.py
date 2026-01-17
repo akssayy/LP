@@ -24,6 +24,7 @@ while i <= 50:
 Input: N = 5
 Output: 15
 """
+"""
 num = int(input("enter a number: "))
 i = 1 
 total = 0 
@@ -34,4 +35,9 @@ while i <= num:
 
 print(f"sum is {total}")
 
+"""
 
+num = int(input("enter a number"))
+
+for i in range(1,11):
+    print(i * num)
