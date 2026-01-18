@@ -1,4 +1,7 @@
-num = int(input("enter a number: ")) 
+a = 5
+b = 10
 
-for i in range(0, num):
-    print(i + 1)
+a = a + b #15
+b = a - b #5
+a = a - b
+print(f"{a}, {b}")
