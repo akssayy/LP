@@ -1,2 +1,8 @@
-num = [12, 34, 32, 45, 68]
-print(num[0], num[-1])
+marks = (12, 45, 85, 65, 69)
+#marks[1] = 22
+y = list(marks)
+print(type(y))
+y.append(22)
+marks = tuple(y)
+print(marks)
+print(type(marks))
