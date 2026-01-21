@@ -5,8 +5,7 @@ print(num)
 if 4 in num:
     print("found")"""
 
-set = {12, 34, 45, 56, 67}
-x = set.pop() 
-
-
-print(f"{set}")
+set = {"apple", 1,  "banana", 0, "cherry"}
+set2 = {False, "google", 1, "apple", 2, True}
+set3 = set.difference(set2)
+print(f"{set3}")
