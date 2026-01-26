@@ -1,9 +1,10 @@
 
 f = open("test.txt", "w")
 f.write("1, Akshay\n")
-f.write("2, Rahul")
+f.write("2, Rahul\n")
+f.write("3, Neha")
 f.close()
 
-"""f = open("test.txt", "r")
-content = f.read()"""
-print(f)
+f = open("test.txt", "r")
+content = f.read()
+print(content)

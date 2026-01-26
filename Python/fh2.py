@@ -1,4 +1,5 @@
 import os
+
 users = []
 
 if os.path.exists("test.txt"):
@@ -14,9 +15,18 @@ if os.path.exists("test.txt"):
 
             users.append(user)
             
-print(users)
+"""print(users)"""
 
 for user in users:
-    print("user id:", user["id"])
-    print("user name:", user["name"])
-    print("-----")
+    print("Id:", user["id"], " | ", end= " " )
+    print("Name:", user["name"])
+    
+search_id = input("enter a id to search: ")
+found = False
+for user in users:
+    if search_id == user["id"]:
+        print(f"user found: user{'name'}")
+        found = True
+        break
+    else:
+        print("user not found")
