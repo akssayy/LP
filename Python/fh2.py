@@ -18,15 +18,21 @@ if os.path.exists("test.txt"):
 """print(users)"""
 
 for user in users:
-    print("Id:", user["id"], " | ", end= " " )
-    print("Name:", user["name"])
-    
+    print(f"Id: {user['id']} | Name: {user['name']}")
+
+
+print("Total users: ", len(users))
+
+
 search_id = input("enter a id to search: ")
+
 found = False
+
 for user in users:
     if search_id == user["id"]:
-        print(f"user found: user{'name'}")
+        print(f"user found: ", {user["name"]})
         found = True
         break
-    else:
-        print("user not found")
+
+if not found:
+    print("User not found")
