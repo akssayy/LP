@@ -30,7 +30,7 @@ found = False
 
 for user in users:
     if search_id == user["id"]:
-        print(f"user found: ", {user["name"]})
+        print(f"user found: ", user["name"])
         found = True
         break
 
