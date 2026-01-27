@@ -1,5 +1,3 @@
-import platform
-
 user_id = input("enter a id: ")
 name = input("enter a name: ")
 
@@ -10,5 +8,3 @@ with open("test.txt", "a") as f:
 print("user saved to file")
 
 
-x = dir(platform)
-print(x)
