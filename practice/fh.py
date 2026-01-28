@@ -1,4 +1,47 @@
-f = open("numbers.txt", "w")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""f = open("numbers.txt", "w")
 
 for i in range(5):
     number = input("Enter a number: ")
@@ -31,4 +74,4 @@ f.close()
 
 print("Total:", total)
 print("Largest:", largest)
-print("Smallest:", smallest)
+print("Smallest:", smallest)"""
