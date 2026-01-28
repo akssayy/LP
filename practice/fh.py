@@ -1,15 +1,34 @@
 f = open("numbers.txt", "w")
-for number in range(5):
-    numbers = int(input("enter a number: "))
-    f.write(numbers )
 
-f.close
+for i in range(5):
+    number = input("Enter a number: ")
+    f.write(number + "\n")
+
+f.close()
+
+
 f = open("numbers.txt", "r")
-content = f.read()
-print(content)
 
-for i in content:
-    total = 0
-    total += i
+total = 0
 
-print(total)    
+largest = None
+smallest = 0
+     
+for line in f:
+    num = int(line.strip())
+
+    total += num
+
+
+
+    if largest is 0 or num > largest:
+        largest = num
+
+    if smallest is 0 or num < smallest:
+        smallest = num
+
+f.close()
+
+print("Total:", total)
+print("Largest:", largest)
+print("Smallest:", smallest)
