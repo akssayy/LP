@@ -4,9 +4,12 @@ class bank:
         self.balance = balance
     
     def deposit(self, amount):
-        self.balance += amount
-        print(f"{amount} deposited successfully")
-    
+        if amount > 0:
+            self.balance += amount
+            print(f"{amount} deposited successfully")
+        else:
+            print("Invaild amount")
+            
     def withdraw(self, amount):
         if amount <= self.balance:
             self.balance -= amount
@@ -17,8 +20,8 @@ class bank:
     def show_details(self):
         print(self.name, "balance: ", self.balance)
     
-acc1 = bank("Akshay", 2000)
-acc2 = bank("Rahul", 300)
+acc1 = bank("Akshay")
+acc2 = bank("Rahul")
 
 acc2.deposit(100)
 acc2.withdraw(50)
