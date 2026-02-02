@@ -1,10 +1,12 @@
-class user:
-    def role(self):
-        print("Normal user")
+class A:
+    def show(self):
+        print("A")
 
-class Admin(user):
-    def role(self):
-        print("Admin user")
+class B(A):
+    def show(self):
+        print("B")
+        super().show()
 
-a = Admin()
-a.role()
+        
+b = B()
+b.show()
