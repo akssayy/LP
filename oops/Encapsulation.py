@@ -7,6 +7,6 @@ class Bank:
 
 b = Bank()
 b.__balance = 9999
-print(b.__balance)
+print(b.balance)
 print(b._Bank__balance)
 b.show_balance()
