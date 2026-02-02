@@ -18,4 +18,4 @@ car1 = car("red", "mustang", 120)
 car1.show_type()
 car1.show_speed()
 car1.drive()
-car1.color("red")
+
