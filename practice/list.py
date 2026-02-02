@@ -1,22 +1,26 @@
-"""2. Moderate–Hard
-Given a list of integers:
-nums = [4, 7, 2, 7, 9, 2, 4, 10] 
+"""Given two lists:
+list1 = [1, 2, 3, 4, 5]
+list2 = [4, 5, 6, 7, 8]
 Write a program to:
-Remove duplicate elements without using set
-Sort the list in ascending order
-Print the second largest number 2, 4, 7, 9, 10"""
+Find common elements using a loop
+Find elements present only in list1
+Find elements present in either list but not both
+(Do not use set operations directly)"""
 
-nums = [4, 7, 2, 7, 9, 2, 4, 10]
-num1 = []
+list1 = [1, 2, 3, 4, 5]
+list2 = [4, 5, 6, 7, 8]
+list3 = []
 
-for i in nums:
-    if i not in num1:
-        num1.append(i)
-        print(num1) 
+for i in list1:
+    if i not in list2:
+         list3.append(i)
 
-num2  = sorted(num1)
+for x in list2:
+     if x not in list1:
+          list3.append(x)
+            
 
-
+print(list3)
 
 
     
