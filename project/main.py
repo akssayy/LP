@@ -1,13 +1,25 @@
 import os
+
+users = []
+
 if os.path.exists("bank.txt"):
     f = open("bank.txt", "r")
-    data = f.read().split(",")
-    f.close()
-    print(data)
-    print(data[0])
-    print(data[1])
 
-"""class BankAccount:
+    for line in f:
+        line = line.strip()
+        data = line.split(",")
+
+        name = data[0]
+        balance = int(data[1])
+
+        users.append([name, balance])
+
+    f.close()
+
+print(users)
+
+
+class BankAccount:
     def __init__(self, name, balance=0):
         self.name = name
         self.balance = balance
@@ -37,8 +49,19 @@ if os.path.exists("bank.txt"):
 
 
 accounts = []
-acc = BankAccount("Akshay", 1000)
+if os.path.exists("bank.txt"):
+    f = open("bank.txt", "r")
+    data = f.read().split(",")
+    f.close()
+    
+    name = data[0]
+    balance = int(data[1])
 
+else:
+    name = "Akshay"
+    balance = 1000
+
+acc = BankAccount(name, balance)
 while True:
     print("\n1 Deposit")
     print("\n2 Withdraw")
@@ -59,10 +82,14 @@ while True:
         acc.show_details()
 
     elif choice == "4":
+        f = open("bank.txt", "w")
+        f.write(acc.name + "," + str(acc.balance))
+        f.close()
+        print("DAta saved")
         break
 
     else:
-        print("invalid choice")"""
+        print("invalid choice")
         
 
 
