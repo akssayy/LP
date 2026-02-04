@@ -1,3 +1,2 @@
 Akshay,1000
 Rahul,500
-Neha,2000
