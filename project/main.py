@@ -1,5 +1,5 @@
 import os
-
+print(os.getcwd())
 # ---------- CLASS ----------
 class BankAccount:
     def __init__(self, name, balance=0):
@@ -42,3 +42,50 @@ else:
 print("\nLoaded Accounts:")
 for acc in users:
     acc.show_details()
+
+#-----------CHOOSE ACCOUNT ----------
+name = input("\nEnter account name: ")
+
+current = None
+for acc in users:
+    if acc.name == name:
+        current = acc
+        break
+
+if current:
+
+    while True:
+        print("\n1. Deposit")
+        print("2. Withdraw")
+        print("3. Show Details")
+        print("4. Exit")
+
+        choice = input("Choose an option: ")
+
+        if choice == "1":
+            amt = int(input("Enter amount to deposit: "))
+            current.deposit(amt)
+            print("Deposited", amt)
+
+        elif choice == "2":
+            amt = int(input("Enter amount to withdraw: "))
+            current.withdraw(amt)
+            print("Withdrew", amt)
+
+        elif choice == "3":
+            current.show_details()
+
+        elif choice == "4":
+            f = open("bank.txt", "w")
+
+            for acc in users:
+                line = acc.name + "," + str(acc.balance) + "\n"
+                f.write(line)
+            f.close()
+
+            print("Data saved!")
+            break
+
+        else:
+            print("Invalid option. Please try again.")
+    
