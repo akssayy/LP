@@ -1,4 +1,6 @@
-a = [1, 2, 3]
-b = a
-b = b + [4]
-print(a)
+x = 5
+def change(x):
+    x = 10
+
+change(x)
+print(x)
