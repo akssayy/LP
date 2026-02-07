@@ -1,9 +1,10 @@
 import json
 
-f = open("data.json", "r")
+data = {"akshay": 23400}
 
-data = json.load(f)
+f = open("data.json", "w")
+
+json.dump(data, f)
 
 f.close()
 
-print(data)
