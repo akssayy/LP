@@ -63,10 +63,12 @@ if current:
         choice = input("Choose an option: ")
 
         if choice == "1":
-            amt = int(input("Enter amount to deposit: "))
-            current.deposit(amt)
-            print("Deposited", amt)
-
+            try:
+                amt = int(input("Enter amount to deposit: "))
+                current.deposit(amt)
+                print("Deposited", amt)
+            except:
+                print("invalid Amouunt")
         elif choice == "2":
             amt = int(input("Enter amount to withdraw: "))
             current.withdraw(amt)
