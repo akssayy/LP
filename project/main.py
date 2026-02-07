@@ -65,14 +65,25 @@ if current:
         if choice == "1":
             try:
                 amt = int(input("Enter amount to deposit: "))
-                current.deposit(amt)
-                print("Deposited", amt)
-            except:
+                if amt <= 0:
+                    print("Amount must be positive")
+
+                else:
+                    current.deposit(amt)
+                    print("Deposited", amt)
+            except ValueError:
                 print("invalid Amouunt")
         elif choice == "2":
-            amt = int(input("Enter amount to withdraw: "))
-            current.withdraw(amt)
-            print("Withdrew", amt)
+            try:
+                 amt = int(input("Enter amount to withdraw: "))
+                 if amt <= 0:
+                    print("Amount must be positive")
+                 else:  
+                    current.withdraw(amt)
+                    print("Withdrew", amt)
+
+            except ValueError:
+                print("Enter numbers only")
 
         elif choice == "3":
             current.show_details()
