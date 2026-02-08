@@ -1,5 +1,4 @@
-import os
-print(os.getcwd())
+
 # ---------- CLASS ----------
 class BankAccount:
     def __init__(self, name, balance=0):
@@ -18,24 +17,7 @@ class BankAccount:
 
 
 # ---------- LOAD USERS ----------
-users = []
 
-if os.path.exists("bank.txt"):
-    f = open("bank.txt", "r")
-
-    for line in f:
-        line = line.strip()
-        data = line.split(",")
-
-        name = data[0]
-        balance = int(data[1])
-
-        users.append(BankAccount(name, balance))
-
-    f.close()
-
-else:
-    print("No bank file found")
 
 
 # ---------- SHOW USERS ----------
@@ -89,13 +71,7 @@ if current:
             current.show_details()
 
         elif choice == "4":
-            f = open("bank.txt", "w")
-
-            for acc in users:
-                line = acc.name + "," + str(acc.balance) + "\n"
-                f.write(line)
-            f.close()
-
+            
             print("Data saved!")
             break
 
