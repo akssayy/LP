@@ -1,5 +1,11 @@
 import json
 
+# ---------- SAVE FUNCTION ----------
+def save_data():
+    with open("data.json", "w") as f:
+        json.dump(data, f)
+
+
 # ---------- CLASS ----------
 class BankAccount:
     def __init__(self, name, balance=0):
@@ -12,6 +18,10 @@ class BankAccount:
     def withdraw(self, amount):
         if amount <= self.balance:
             self.balance -= amount
+            return True
+        else:
+            print("Not enough balance!")
+            return False
 
     def show_details(self):
         print(self.name, "balance:", self.balance)
@@ -19,10 +29,9 @@ class BankAccount:
 
 # ---------- LOAD DATA ----------
 try:
-    f = open("data.json", "r")
-    data = json.load(f)
-    f.close()
-except:
+    with open("data.json", "r") as f:
+        data = json.load(f)
+except FileNotFoundError:
     data = {}
 
 print("\nLoaded Accounts:")
@@ -47,36 +56,44 @@ while True:
 
     choice = input("Choose: ")
 
+    # ----- DEPOSIT -----
     if choice == "1":
         try:
             amt = int(input("Amount: "))
             if amt > 0:
                 current.deposit(amt)
+                data[name] = current.balance
+                save_data()
                 print("Deposited", amt)
+            else:
+                print("Enter positive amount!")
         except ValueError:
             print("Numbers only")
 
+    # ----- WITHDRAW -----
     elif choice == "2":
         try:
             amt = int(input("Amount: "))
             if amt > 0:
-                current.withdraw(amt)
-                print("Withdrew", amt)
+                success = current.withdraw(amt)
+                if success:
+                    data[name] = current.balance
+                    save_data()
+                    print("Withdrew", amt)
+            else:
+                print("Enter positive amount!")
         except ValueError:
             print("Numbers only")
 
+    # ----- SHOW -----
     elif choice == "3":
         current.show_details()
 
+    # ----- EXIT -----
     elif choice == "4":
-        # SAVE TO JSON
         data[name] = current.balance
-
-        f = open("data.json", "w")
-        json.dump(data, f)
-        f.close()
-
-        print("Saved!")
+        save_data()
+        print("Saved! Goodbye.")
         break
 
     else:
