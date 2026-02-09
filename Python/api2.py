@@ -1,7 +1,7 @@
 import requests
 try:
 
-    url = "https://official-joke-api.appspot.com/random_joke"
+    response = requests.get("https://official-joke-api.appspot.com/random_joke")
 
     if response.status_code == 200:
         data = response.json()
@@ -10,5 +10,5 @@ try:
     else:
         print("API failed with code: ", response.status_code)
     
-except request.exceptions.RequestException:
+except requests.exceptions.RequestException:
     print("Network error!")
