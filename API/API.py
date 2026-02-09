@@ -1,17 +1,28 @@
 import requests
 
-input("press enter for a joke")
-
 try:
-    response = requests.get("https://official-joke-api.appspot.com/random_joke")
+    num = int(input("How many jokes joke: "))
 
-    if response.status_code == 200:
-        data = response.json()
-        print("setup:", data["setup"])
-        print("punchline:", data["punchline"])
+    if num <= 0:
+        print("Number must be positive !")
+        exit()
 
-    else:
-        print("API error:", response.status_code)
+except ValueError:
+    print("Invalid Choice, Enter a number")
+    num = 0
 
-except requests.exceptions.RequestException:
-    print("Network error!")
+for i in range(num):
+    try:
+        response = requests.get("https://official-joke-api.appspot.com/random_joke",
+        timeout = 5)
+
+        if response.status_code == 200:
+            data = response.json()
+            print("\nsetup:", data["setup"])
+            print("punchline:", data["punchline"])
+
+        else:
+            print("API error:", response.status_code)
+
+    except requests.exceptions.RequestException:
+        print("Network error!")
