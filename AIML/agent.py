@@ -1,4 +1,5 @@
 def ml_agent(hours):
-    score = m * houirs + c
+    score = m * hours + c
     return "PASS" if score >= 60 else "FAIL"
 
+ml_agent(6)

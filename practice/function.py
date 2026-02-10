@@ -1,19 +1,7 @@
-def studay_agent(hours):
-    return "PASS" if hours >= 5 else "Fail"
+number = int(input("Enter a number: "))
 
-s = studay_agent(4)
+def square(number):
+    return number * number
+
+s= square(number)
 print(s)
-
-
-
-
-"""num = int(input("Enter a number: "))
-
-def even_odd(num):
-    if num % 2 == 0:
-        print("number is even")
-
-    else:
-        print("number is odd")
-
-even_odd(num)"""
