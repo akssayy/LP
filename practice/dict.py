@@ -19,7 +19,7 @@ students = [
 
 
 def check_passed(students):
-    count = []
+    count = {}
     for student in students:
         if student["marks"] >= 60:
             count.append(student["name"])
