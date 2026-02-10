@@ -10,24 +10,22 @@ def sum_list(numbers):
 print(sum_list(numbers)"""
 
 
-students = [
-    {"name": "A", "marks": 55},
-    {"name": "B", "marks": 70},
-    {"name": "C", "marks": 60},
-    {"name": "D", "marks": 30}
-]
+numbers = [1, 2, 3, 4, 5, 6]
 
 
 def check_passed(students):
-    result = {}
+    result = {
+        "even": [],
+        "odd": []
+    }
 
-    for student in students:
-        if student["marks"] >= 60:
-            result[student["name"]] = "PASS"
+    for n in numbers:
+        if n %2 == 0:
+            result ["even"].append(n)
         else:
-            result[student["name"]] = "FAIL"
+            result ["odd"].append(n)
 
     return result
 
 
-print(check_passed(students))
+print(check_passed(numbers))
