@@ -27,5 +27,4 @@ def check_passed(students):
 
     return result
 
-
 print(check_passed(numbers))
