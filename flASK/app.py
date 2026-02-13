@@ -1,10 +1,11 @@
-from flask import Flask
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
 #fake database
 users = {1:{"name": "Aksh", "balance": 5000},
-2: {"name": "sam", "balance": 3000}}
+         2: {"name": "sam", "balance": 3000}
+    }
 
 
 @app.route("/user/<int:user_id>")
