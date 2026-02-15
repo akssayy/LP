@@ -6,16 +6,17 @@ app = Flask(__name__)
 def home():
     return "server running"
 
-@app.route("/add", methods=["post"])
-def add():
+@app.route("/student", methods=["post"])
+def add_student():
     data = request.json
+
     name = data["name"]
-    age = data["age"]
+    course = data["course"]
 
     return jsonify({
-        "message": "user received",
+        "message": "student received",
         "name": name,
-        "age": age
+        "course": course
     })
 
 app.run()

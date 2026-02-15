@@ -1,11 +1,11 @@
 import requests
 
 data = {
-    "name": "AB Devillers",
-    "age": 39
+    "name": "sam",
+    "course": "python"
 }
 
-r = requests.post("http://127.0.0.1:5000/add",
+r = requests.post("http://127.0.0.1:5000/student",
 json=data
 )
 
