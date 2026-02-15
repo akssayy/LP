@@ -22,6 +22,10 @@ def receive():
     return jsonify({"you_sent": data
     })
 
+@app.route("/hello")
+def hello():
+    return jsonify({"msg": "hello"})
+
 @app.route("/test")
 def test():
     return jsonify ({"message": "working"}), 200
