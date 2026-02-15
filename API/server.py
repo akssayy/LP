@@ -22,6 +22,13 @@ def receive():
     return jsonify({"you_sent": data
     })
 
+@app.route("/square/<int:num>")
+def square(num):
+    return jsonify({
+        "number": num,
+        "square": num * num
+    })
+
 @app.route("/hello")
 def hello():
     return jsonify({"msg": "hello"})
