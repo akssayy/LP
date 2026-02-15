@@ -16,6 +16,15 @@ def add_student():
     return jsonify({"message": "student added",
     "students": students})
 
+@app.route("/send", methods=["POST"])
+def receive():
+    data = request.json
+    return jsonify({"you_sent": data
+    })
 
-app.run()
+@app.route("/test")
+def test():
+    return jsonify ({"message": "working"}), 200
+
+app.run(debug=True)
 
