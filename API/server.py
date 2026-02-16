@@ -8,6 +8,14 @@ students = []
 def home():
     return "server is running"
 
+@app.route("/greet")
+def greet():
+    name = request.args.get("name")
+
+    return jsonify({
+        "greeting": f"hello {name}"
+    })
+
 @app.route("/students", methods=["POST"])
 def add_student():
     data = request.json
