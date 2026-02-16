@@ -8,12 +8,29 @@ students = []
 def home():
     return "server is running"
 
+@app.route("/onlyget")
+def onlyget():
+    return "get works"
+
+@app.route("/both", methods=["GET", "POST"])
+def both():
+    return "works for both"
+    
 @app.route("/greet")
 def greet():
     name = request.args.get("name")
 
     return jsonify({
         "greeting": f"hello {name}"
+    })
+
+@app.route("/info/<name>")
+def info(name):
+    age = request.args.get("age")
+
+    return jsonify({
+        "name": name,
+        "age": age
     })
 
 @app.route("/students", methods=["POST"])
