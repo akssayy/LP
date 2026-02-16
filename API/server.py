@@ -15,7 +15,11 @@ def onlyget():
 @app.route("/both", methods=["GET", "POST"])
 def both():
     return "works for both"
-    
+
+@app.route("/double/<int:num>")
+def double(num):
+    return {"result": num * 2}
+
 @app.route("/greet")
 def greet():
     name = request.args.get("name")
