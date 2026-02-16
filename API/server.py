@@ -22,6 +22,13 @@ def receive():
     return jsonify({"you_sent": data
     })
 
+@app.route("/student", methods=["GET"])
+def get_student():
+    data = request.json
+    
+
+    return jsonify("getting: ", data)
+
 @app.route("/cube/<int:num>")
 def square(num):
     return jsonify({

@@ -9,7 +9,7 @@ def home():
     return "server running"
 
 #Add students
-@app.route("/student", methods= ["post"])
+@app.route("/student", methods= ["POST"])
 def add_student():
     data = request.json
 
