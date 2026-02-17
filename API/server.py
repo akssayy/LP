@@ -20,10 +20,9 @@ def both():
 def double(num):
     return {"result": num * 2}
 
-@app.route("/greet")
-def greet():
-    name = request.args.get("name")
-
+@app.route("/greet/<name>")
+def greet(name):
+    
     return jsonify({
         "greeting": f"hello {name}"
     })
@@ -51,12 +50,16 @@ def receive():
     return jsonify({"you_sent": data
     })
 
+@app.route("/add/<int:num1>/<int:num2>")
+def add(num1, num2):
+    return jsonify({"sum": num1 + num2})
+
 @app.route("/students", methods=["GET"])
 def get_student():
     return jsonify(students)
 
 @app.route("/cube/<int:num>")
-def square(num):
+def cube(num):
     return jsonify({
         "number": num,
         "cube": num * num * num
