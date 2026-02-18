@@ -23,5 +23,22 @@ def vote(age):
     else:
         return jsonify("you can't vote")
 
-@app.route
+@app.route("/table/<int:num>")
+def table(num):
+    rows = []
+    temp = 1
+
+    while temp <= 10:
+        rows.append({f"Table of {num} is":f"{num} x {temp}","value": num * temp})
+        temp += 1
+    return jsonify(rows)
+
+"""def table(num):
+    rows = []
+    temp = 1
+    while temp <= 10:
+        rows.append({"expr": f"{num} x {temp}", "value": num*temp})
+        temp += 1
+    return jsonify(rows)"""
+
 app.run()
