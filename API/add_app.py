@@ -4,11 +4,11 @@ app = Flask(__name__)
 
 users = []
 
-@app.route("/divide/<int:a>/<int:b>")
-def divide(a, b):
-    if b == 0:
-        return {"error": "cannot divide bY xero"}
-    else:
-        return jsonify({"divide": a / b})
+@app.route("/power/<int:base>/<int:exp>")
+def power(base, exp):
+    if exp < 0 :
+        return jsonify({"error": "exp cannot be less than zero"})
+    
+    return jsonify({"power": base ** exp})
 
 app.run()
