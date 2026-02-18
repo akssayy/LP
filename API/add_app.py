@@ -15,4 +15,13 @@ def power(base, exp):
 @app.route("/test/<int:x>")
 def test(x):
     return {"value": x}
+
+@app.route("/vote/<int:age>")
+def vote(age):
+    if age >= 18:
+        return jsonify("you can vote")
+    else:
+        return jsonify("you can't vote")
+
+@app.route
 app.run()
