@@ -15,4 +15,4 @@ def post_student():
         return "error, age is required"
     return jsonify({"message": "recived", "student": students})
 
-app.run()
+app.run(debug=True)
