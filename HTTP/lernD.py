@@ -9,14 +9,10 @@ users = [
 
 #next_id = 1
 
-@app.route("/users/<int:user_id>", methods=["GET"])
-def get_user(user_id):
+@app.route("/users", methods=["GET"])
+def get_all_user():
+    return jsonify({"count": len(users),
+                    "users": users}), 200
     
-    for user in users:
-        if user["id"] == user_id:
-            return jsonify(user), 200
-
-
-    return jsonify({"error": "user not found"}), 404
 
 app.run(debug=True)
