@@ -1,9 +1,9 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-users = [{"name": "Akshay"},
-         {"name": "Waghral"}]
+users = []
+next_id = 1
 
 
 @app.route("/users/<string:value>", methods=["DELETE"])
