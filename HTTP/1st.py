@@ -7,9 +7,10 @@ user = [{"Name": "Akshay"}]
 def test():
     data = request.get_json()
     
-    if not data:
-        return jsonify({"error": "JSON body required"}), 400
-       
-    return jsonify(data), 200
+    if not data or "name" not in data and "name" != None and "name" == str():
+        return jsonify({"error": "JSON body name required"}), 400
+
+    name = data["name"]
+    return jsonify({"message": f"Hello {name}"}), 200
 
 app.run(debug=True)
