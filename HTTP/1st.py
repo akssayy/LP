@@ -15,4 +15,4 @@ def test():
 
 app.run(debug=True)"""
 
-print(isinstance(True, int))
+print(isinstance(False, int))
