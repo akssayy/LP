@@ -6,6 +6,10 @@ user = [{"Name": "Akshay"}]
 @app.route("/test", methods=["POST"])
 def test():
     data = request.get_json()
-    return jsonify(data)
+    
+    if not data:
+        return jsonify({"error": "JSON body required"}), 400
+       
+    return jsonify(data), 200
 
 app.run(debug=True)
