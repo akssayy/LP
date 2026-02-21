@@ -1,4 +1,4 @@
-from flask import Flask , jsonify, request
+"""from flask import Flask , jsonify, request
 
 app = Flask(__name__)
 user = [{"Name": "Akshay"}]
@@ -13,4 +13,6 @@ def test():
     name = data["name"]
     return jsonify({"message": f"Hello {name}"}), 200
 
-app.run(debug=True)
+app.run(debug=True)"""
+
+print(isinstance(True, int))
