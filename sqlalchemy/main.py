@@ -16,4 +16,9 @@ class User(db.Model):
 with app.app_context():
     db.create_all()
 
+    new_user = User(name="Akshay")
+
+    db.session.add(new_user)
+    db.session.commit()
+
 app.run(debug=True)
