@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -16,9 +16,24 @@ class User(db.Model):
 with app.app_context():
     db.create_all()
 
-    new_user = User(name="Akshay")
+
+@app.route("/users", methods=["POST"])
+def create_user():
+
+    data = request.get_json()
+
+    if not data or "name" not in data:
+        return jsonify({"error": "Name required"}), 400 
+
+    new_user = User(name=data["name"])
 
     db.session.add(new_user)
     db.session.commit()
+    
+    return jsonify({
+        "message": "User created",
+        "id": new_user.id,
+        "name": new_user.name
+    }), 201
 
 app.run(debug=True)
