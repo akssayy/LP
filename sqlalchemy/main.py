@@ -19,17 +19,23 @@ with app.app_context():
 
 @app.route("/users/<int:user_id>", methods=["GET"])
 def get_user(user_id):
+    conn = sqlite3.connect("instance/users.db")
+    cursor = conn.cursor()
 
-    user = User.query.get(user_id)
+    cursor.execute("SELECT * FROM users WHERE id=?", (id,))
+    user = cursor.fetchone()
 
-    if not user:
-        return jsonify({"error": "user not found"}), 404 
+    conn.close()
+
+    if user:
+         return {
+             "id": user[0],
+             "name": user[1] }
+    else:   
+        return jsonify({"message ": "user not found"}), 404 
 
     
     
-    return jsonify({
-        "id": user.id,
-        "name": user.name
-    }), 200
+   
 
 app.run(debug=True)
