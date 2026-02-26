@@ -17,23 +17,19 @@ with app.app_context():
     db.create_all()
 
 
-@app.route("/users", methods=["POST"])
-def create_user():
+@app.route("/users/<int:user_id>", methods=["GET"])
+def get_user(user_id):
 
-    data = request.get_json()
+    user = User.query.get(user_id)
 
-    if not data or "name" not in data:
-        return jsonify({"error": "Name required"}), 400 
+    if not user:
+        return jsonify({"error": "user not found"}), 404 
 
-    new_user = User(name=data["name"])
-
-    db.session.add(new_user)
-    db.session.commit()
+    
     
     return jsonify({
-        "message": "User created",
-        "id": new_user.id,
-        "name": new_user.name
-    }), 201
+        "id": user.id,
+        "name": user.name
+    }), 200
 
 app.run(debug=True)
