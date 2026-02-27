@@ -16,22 +16,19 @@ with app.app_context():
     db.create_all()
 
 
-@app.route("/users/<int:user_id>", methods=["GET"])
-def get_user(user_id):
-    conn = sqlite3.connect("instance/users.db")
-    cursor = conn.cursor()
+@app.route("/users/<int:user_id>", methods=["DELETE"])
+def delete_user(user_id):
 
-    cursor.execute("SELECT * FROM users WHERE id=?", (id,))
-    user = cursor.fetchone()
+    user = User.query.get(user_id)
 
-    conn.close()
+    if not user:
+        return jsonify({"error":"User not found"}),404
 
-    if user:
-         return {
-             "id": user[0],
-             "name": user[1] }
-    else:   
-        return jsonify({"message ": "user not found"}), 404 
+    db.session.delete(user)
+
+    db.session.commit()
+
+    return jsonify({"message":"User deleted"}),200
 
     
     
