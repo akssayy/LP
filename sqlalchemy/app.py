@@ -17,12 +17,20 @@ with app.app_context():
 @app.route("/users", methods=["GET"])
 def get_user():
 
-    new_user = User.query.all()
+    users = User.query.all()
 
-    if not data:
-        return jsonify({"error": "user not found"})
+    if not users:
+        return jsonify({"error": "user not found"}), 404
+    
+    result = []
 
-    return jsonify(new_user)
+    for user in users:
+        result.append({
+            "id": user.id,
+            "name": user.name
+        })
+
+    return jsonify(result)
 
 
 
