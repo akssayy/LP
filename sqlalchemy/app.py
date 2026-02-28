@@ -32,8 +32,9 @@ def get_user():
 
     total_user = len(result)
 
-    return jsonify({"users":result,
-                    "total users are":total_user})
+    return jsonify({"total users are":total_user,
+                    "users":result
+                })
 
 
 
