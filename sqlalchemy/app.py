@@ -30,7 +30,10 @@ def get_user():
             "name": user.name
         })
 
-    return jsonify(result)
+    total_user = len(result)
+
+    return jsonify({"users":result,
+                    "total users are":total_user})
 
 
 
