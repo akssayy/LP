@@ -1,18 +1,56 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify 
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-#fake database
-users = {1:{"name": "Aksh", "balance": 5000},
-         2: {"name": "sam", "balance": 3000}
-    }
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 
+db = SQLAlchemy(app)
 
-@app.route("/user/<int:user_id>")
-def get_user(user_id):
-    if user_id in users:
-        return jsonify(users[user_id])
-    else:
-        return jsonify({"error": "user not found"})
+class User(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    name = db.Column(db.String(100))
+
+    email = db.Column(db.String(50))
+
+class post(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    title = db.Column(db.String(100))
+
+    content = db.Column(db.String(500))
+
+    user_id   = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+with app.app_context():
+    db.create_all()
+
+    user1 = User(
+        name = "Akshay",
+        email = "akshay@email.com"
+    ) 
+
+    db.session.add(user1)
+    db.session.commit()
+
+    post1 = post(
+        title = "First post",
+        content = "world",
+        user_id=1
+    )
+
+    post2 = post(
+        title = "Second Post",
+        content = "World",
+        user_id=1
+    )
+
+    db.session.add(post1)
+    db.session.add(post2)
+
+    db.session.commit()
 
 app.run()
