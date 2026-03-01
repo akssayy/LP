@@ -15,6 +15,8 @@ class User(db.Model):
 
     email = db.Column(db.String(50))
 
+    posts = db.relationship('post')
+
 class post(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
@@ -28,7 +30,7 @@ class post(db.Model):
 with app.app_context():
     db.create_all()
 
-    user1 = User(
+    """user1 = User(
         name = "Akshay",
         email = "akshay@email.com"
     ) 
@@ -46,17 +48,18 @@ with app.app_context():
         title = "Second Post",
         content = "World",
         user_id=1
-    )
+    ) 
 
     db.session.add(post1)
     db.session.add(post2)
 
-    db.session.commit()
+    db.session.commit()"""
 
-    users = User.query.all()
+    user = User.query.first()
 
-    for user in users:
-        print(user.name, user.email)
+    if user:
+        for post in user.posts:
+            print(post.title)
 
     posts = post.query.all()
 
