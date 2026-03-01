@@ -53,4 +53,14 @@ with app.app_context():
 
     db.session.commit()
 
+    users = User.query.all()
+
+    for user in users:
+        print(user.name, user.email)
+
+    posts = post.query.all()
+
+    for post in posts:
+        print(post.title, "belongs to", post.user_id)
+
 app.run()
