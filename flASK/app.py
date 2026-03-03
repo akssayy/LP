@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -38,7 +38,7 @@ with app.app_context():
     db.create_all()
 
     # Insert data ONLY if database empty
-    if User.query.first() is None:
+""" if User.query.first() is None:
 
         user1 = User(
             name="Akshay",
@@ -72,9 +72,9 @@ with app.app_context():
 
         print(post.title)
 
-        print(post.user.name)
+        print(post.user.name)"""
 
-"""with app.app_context():
+with app.app_context():
 
     db.create_all()
 
@@ -90,7 +90,23 @@ with app.app_context():
 
         print(post.title)
 
-        print(post.user.name)"""
+        print(post.user.name)
 
+@app.route("/posts")
+def get_posts():
+
+    posts = Post.query.all()
+
+    result =[]
+
+    for post in posts:
+
+        result.append({
+            "title": post.title,
+            "content": post.content,
+            "author": post.user.name
+        })
+
+    return jsonify(result)
 
 app.run()
