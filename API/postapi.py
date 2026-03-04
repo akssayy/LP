@@ -8,10 +8,23 @@ def home():
 
 @app.route("/student", methods=["post"])
 def add_student():
-    data = request.json
+    data = request.get_json()
 
-    name = data["name"]
-    course = data["course"]
+    if not data:
+        return jsonify({"error": "JSON body is requred"}), 400
+    
+    errors = []
+    
+    name = data.get("name")
+    age = data.get("age")
+
+    if not name:
+        errors.append("Name is required")
+
+    el if len(name) > 3:
+        errors.append("Name should be greater than 3 chars")
+    
+
 
     return jsonify({
         "message": "student received",
