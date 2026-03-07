@@ -21,7 +21,7 @@ def add_student():
     if not name:
         errors.append("Name is required")
 
-    el if len(name) > 3:
+    elif len(name) > 3:
         errors.append("Name should be greater than 3 chars")
     
 
