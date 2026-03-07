@@ -30,3 +30,5 @@ def create_user():
     users.append(user)
 
     return jsonify(user), 201
+
+app.run(debug=True)
