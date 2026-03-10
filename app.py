@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-
+print("APP FILE RUNNING")
 app = Flask(__name__)
 
 @app.route("/")
