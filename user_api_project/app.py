@@ -1,5 +1,5 @@
 from flask import Flask
-print("APP FILE RUNNING")
+print("APP FILE RUNNING") 
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
