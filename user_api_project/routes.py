@@ -3,6 +3,11 @@ from app import app, db
 from models import User
 from schemas import user_schema, users_schema
 
+
+@app.route("/")
+def home():
+    return "API WORKING"
+
 @app.route("/users", methods=["POST"])
 def create_user():
 
@@ -22,7 +27,7 @@ def create_user():
 @app.route("/users", methods=["GET"])
 def get_users():
 
-    user = User.query.all()
+    users = User.query.all()
 
     return users_schema.dump(users)
 
