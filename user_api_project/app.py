@@ -1,20 +1,23 @@
 from flask import Flask
-print("APP FILE RUNNING") 
+from flask_jwt_extended import JWTManager
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config['JWT_SECRET_KEY'] = "super-secret-key"
+
+jwt = JWTManager(app)
 
 db = SQLAlchemy(app)
 
-from models import User
+import models
+import routes
 
 with app.app_context():
     db.create_all()
 
-import routes
 
 if __name__ == "__main__":
     app.run(debug=True)   

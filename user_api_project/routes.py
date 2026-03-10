@@ -4,9 +4,12 @@ from models import User
 from schemas import user_schema, users_schema
 
 
-@app.route("/")
-def home():
-    return "API WORKING"
+@app.route("/signup", methods=["POST"])
+def signup():
+    
+    data = request.json
+
+    hashed_password = generate_password_hash(data["password"])
 
 @app.route("/users", methods=["POST"])
 def create_user():
