@@ -2,24 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login page</title>
 </head>
+
 <body>
-    <h1>Welcome to my App</h1>
 
-    <p> Please login below</p>
+<h2>Login Form</h2>
 
-    <lable>Username</lable>
-    <input type="text">
-    <br><br>
+<form action="/login" method="POST">
 
-    <lable>Password</lable>
-    <input type="password">
-    <br><br>
-    
-    <button>
-        Login button
-    </button>
+<label>Username</label>
+<br>
+<input type="text" name="username">
+
+<br><br>
+
+<label>Password</label>
+<br>
+<input type="password" name="password">
+
+<br><br>
+
+<button type="submit">Login</button>
+
+</form>
+
 </body>
 </html>
