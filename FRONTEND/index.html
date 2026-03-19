@@ -10,23 +10,36 @@
 
 <h2>Login Form</h2>
 
-<form action="/login" method="POST">
+<form>
 
 <label>Username</label>
 <br>
-<input type="text" name="username" id="username" placeholder="enter your username">
+<input type="text" id="username" placeholder="enter your username">
 
 <br><br>
 
 <label>Password</label>
 <br>
-<input type="password" name="password" placeholder="enter your password" id="password">
+<input type="password" id="password" placeholder="enter your password">
 
 <br><br>
 
-<button type="submit">Login</button>
+<button id="loginBtn" onclick="login()" type="button">Login</button>
 
 </form>
+
+<script> 
+
+function login() {
+
+    let username = document.getElementById("username").value
+    let password = document.getElementById("password").value
+
+    console.log("Username:", username)
+    console.log("Password:", password)
+}
+
+</script>
 
 </body>
 </html>
