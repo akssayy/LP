@@ -4,24 +4,22 @@ conn = sqlite3.connect("collage.db")
 
 cursor = conn.cursor()
 
-cursor.execute("""CREATE TABLE collage 
+cursor.execute("""CREATE TABLE students 
 (
     id INTEGER PRIMARY KEY,
     name TXT,
     subject TXT
 )
 """)
-cursor.executemany(
+cursor.execute(
     "INSERT INTO collage (name, subject) VALUES( ?, ?)",
-    [
-        ("Rahul", "Math"),
-        ("Sneha", "Science"),
-        ("Amit","English")
-    ]
+    ("Rahul", "Math"),
+    ("Sneha", "Science"),
+    ("Amit","English")
 )
 
 conn.commit()
-cursor.execute("SELECT * FROM collage")
+cursor.execute("SELECT & FROM collage")
 print(cursor.fetchall())
 
 conn.close()
