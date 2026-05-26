@@ -10,16 +10,16 @@
 
     <script>
         
-        function square( num) {
-            return (num * num);
+        let colors = ["red", "blue", "green", "black"];
 
-            
+        console.log(colors[0]);
+        console.log(colors[3]);
+        colors[2] = "yellow";
+        console.log(colors.length);
+
+        for (let i = 0; i < colors.length; i ++){
+            console.log(colors[i]);
         }
-        
-        let result = square(4);
-
-        console.log(result)
-
     </script>
 </body>
 </html>
