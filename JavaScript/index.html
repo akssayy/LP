@@ -10,16 +10,15 @@
 
     <script>
         
-        let colors = ["red", "blue", "green", "black"];
+        let students = ["Akshay", "Ankita", "Rahul", "Priya"];
+        students.push("Aman");
+        console.log(students);
+        students.pop();
+        console.log(students);
+        console.log(students.includes("Rahul"));
+        console.log(students.indexOf("Priya"));
+        console.log(students);
 
-        console.log(colors[0]);
-        console.log(colors[3]);
-        colors[2] = "yellow";
-        console.log(colors.length);
-
-        for (let i = 0; i < colors.length; i ++){
-            console.log(colors[i]);
-        }
     </script>
 </body>
 </html>
