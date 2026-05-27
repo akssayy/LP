@@ -10,17 +10,30 @@
 
     <script>
         
-        let laptop = {
-            brand: "HP",
-            ram: 16,
-            price: 50000
+        let mobiles = [
+            {
+                brand: "Samsung",
+                price: 17000
+
+            },
+
+            {
+                brand: "Nathing",
+                price: 16000
+            },
+
+            {
+                brand: "Apple",
+                price: 100000
+            }
+        ]
+
+        console.log(mobiles[0])
+        console.log(mobiles[1].price)
+
+        for (let i =  0; i < mobiles.length; i++) {
+            console.log(mobiles[i])
         }
-        console.log(laptop);
-        console.log(laptop.brand);
-        laptop.ram = 8
-        console.log(laptop);
-        laptop.color = "silver"
-        console.log(laptop)
     </script>
 </body>
 </html>
