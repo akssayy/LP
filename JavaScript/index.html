@@ -10,30 +10,33 @@
 
     <script>
         
-        let mobiles = [
+        let students = [
             {
-                brand: "Samsung",
-                price: 17000
+                name: "Akshay",
+                marks: 80
 
             },
 
             {
-                brand: "Nathing",
-                price: 16000
+                name: "Virat",
+                marks: 60
             },
 
             {
-                brand: "Apple",
-                price: 100000
+                name: "ABD",
+                marks: 100
             }
         ]
 
-        console.log(mobiles[0])
-        console.log(mobiles[1].price)
+        
+            function showStudent(students) {
 
-        for (let i =  0; i < mobiles.length; i++) {
-            console.log(mobiles[i])
-        }
+                 for (let i =  0; i < students.length; i++) {
+                     console.log(students[i].name , students[i].marks)
+                 }
+            }
+
+            showStudent(students);
     </script>
 </body>
 </html>
