@@ -7,22 +7,31 @@
 </head>
 <body>
     
-    <form id="myForm">
+    <form id="loginForm">
 
         <input type="text" id="username">
 
-        <button type="submit"></button>
+        <button type="submit">Login</button>
     </form>
 
+    <h2 id="message"></h2>
+
     <script>
-        let form = document.getElementById("myForm");
+        let form = document.getElementById("loginForm");
+
+        let username = document.getElementById("username");
+
+        let message = document.getElementById("message");
 
         form.addEventListener("submit", function(event){
             event.preventDefault();
 
-            console.log("Form submitted without refresh");
+            message.innerText = "Welcome " + username.value;
+            console.log("Login form submitted");
 
         });
+
+         
     </script>
 
     
