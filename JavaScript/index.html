@@ -6,22 +6,25 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" id="username">
-    <button id="btn">Submit</button>
-    <h2 id="output"></h2>
+    
+    <form id="myForm">
 
+        <input type="text" id="username">
+
+        <button type="submit"></button>
+    </form>
 
     <script>
-        let input = document.getElementById("username");
-        let button = document.getElementById("btn");
-        let oput = document.getElementById("output");
+        let form = document.getElementById("myForm");
 
-        button.addEventListener("click", function(){
-            console.log(input.value);
-            oput.innerText = input.value;
-            oput.style.color = "blue";
-        });        
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
 
+            console.log("Form submitted without refresh");
+
+        });
     </script>
+
+    
 </body>
 </html>
