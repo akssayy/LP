@@ -7,31 +7,16 @@
 </head>
 <body>
     
-    <form id="loginForm">
-
-        <input type="text" id="username">
-
-        <button type="submit">Login</button>
-    </form>
-
-    <h2 id="message"></h2>
-
     <script>
-        let form = document.getElementById("loginForm");
 
-        let username = document.getElementById("username");
+        const multipy = (a, b) => {
+            return a * b;
+        };
 
-        let message = document.getElementById("message");
+        let result = multipy(7, 8);
+        console.log(result);
 
-        form.addEventListener("submit", function(event){
-            event.preventDefault();
 
-            message.innerText = "Welcome " + username.value;
-            console.log("Login form submitted");
-
-        });
-
-         
     </script>
 
     
