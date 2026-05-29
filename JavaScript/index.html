@@ -6,23 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 id="title"> hello</h1>
+    <input type="text" id="username">
+    <button id="btn">Submit</button>
+    <h2 id="output"></h2>
 
-    <button id="btn">Click me</button>
 
     <script>
-        
-        let heading = document.getElementById("title");
-
+        let input = document.getElementById("username");
         let button = document.getElementById("btn");
+        let oput = document.getElementById("output");
 
         button.addEventListener("click", function(){
-            
-            heading.innerText = "Button Clicked";
-
-            console.log("User clicked button");
-        });
-        
+            console.log(input.value);
+            oput.innerText = input.value;
+            oput.style.color = "blue";
+        });        
 
     </script>
 </body>
