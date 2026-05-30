@@ -9,12 +9,11 @@
     
     <script>
 
-        let prices = [100, 200, 300, 400];
+        let marks = [20, 45, 80, 35, 90, 60];
 
-        let finalprice = prices.map(price => price * 1.18);
-
-        console.log(prices);
-        console.log(finalprice);
+        let passedmarks = marks.filter(marks => marks >= 40);
+        
+        console.log(passedmarks);
 
     </script>
 
