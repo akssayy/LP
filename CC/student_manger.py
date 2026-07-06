@@ -22,6 +22,6 @@ def show_student():
         print(index, student)
         
     
-    print(f"no of students are{i}")
+    print(f"Total Students {len(students)}")
 
 show_student()
