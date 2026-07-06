@@ -17,8 +17,11 @@ remove_student("Akshay")
 print(students)
 
 def show_student():
+    
     for index, student in enumerate(students, start=1):
         print(index, student)
-
+        
     
+    print(f"no of students are{i}")
+
 show_student()
