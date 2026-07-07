@@ -23,12 +23,12 @@ def update_marks(name, marks):
 
 def calculate_average(students):
     x = len(students)
-    return print("Class Average: ",sum(students.values())/ x)
+    return "Class Average: ",sum(students.values())/ x
 
 def show_students():
 
     for index, student in enumerate(students, start=1):
-        print(f"{index}. {students}")
+        print(f"{index}. {student}")
 
 
 add_student("ABD", 87)
