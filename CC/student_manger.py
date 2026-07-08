@@ -1,38 +1,14 @@
-students = {
-    "Akshay": 87,
-    "virat": 75
-}
+marks = [60, 70, 80]
 
-def add_student(name, marks):
-    
-    if name in students:
-        print("Student already exits.")
-
-    else:
-        students.update({name: marks})
-        print(students)
-
-def update_marks(name, marks):
-
-    if name in students:
-        students[name] = marks
-        print(students)
-
-    else:
-        print("Student not found")
-
-def calculate_average(students):
-    x = len(students)
-    return "Class Average: ",sum(students.values())/ x
-
-def show_students():
-
-    for index, student in enumerate(students, start=1):
-        print(f"{index}. {student}")
+def add_bonus(marks, bonus):
+    for mark in marks:
+        updated_marks = mark + bonus
+        print(updated_marks)
+        
+    return marks.append(updated_marks) 
 
 
-add_student("ABD", 87)
-update_marks("Akshay", 77)
-show_students()
-calculate_average(students)
+print(marks)
+add_bonus(marks, 5)
+
 
