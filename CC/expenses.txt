@@ -1,0 +1,5 @@
+Food,700
+
+Travel,300
+
+Rent,5500
