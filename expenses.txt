@@ -1,3 +1,4 @@
-Food,700
-Travel,300
-Rent,5500
+{
+"food": 6000,
+"rent": 5500
+}
