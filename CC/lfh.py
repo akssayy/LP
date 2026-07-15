@@ -9,7 +9,7 @@ def load_expenses():
                 amount = int(amount)
                 expenses[category] = int(amount)
 
-
+            print(line)
     except FileNotFoundError:
         pass
     t = type(amount)
