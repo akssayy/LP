@@ -1,5 +1,5 @@
-numbers = [10, 20, 30, 40]
+names = ["akshay", "virat", "abd"]
 
-double_numbers= [number * 2 for number in numbers]
+upper_names = [name.upper() for name in names]
 
-print(double_numbers)
+print(upper_names)
